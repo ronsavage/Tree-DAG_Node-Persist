@@ -133,7 +133,7 @@ $ENV{DBI_DSN}  || "dbi:SQLite:$temp_file_name",
 $ENV{DBI_USER} || '',
 $ENV{DBI_PASS} || '',
 );
-my($dbh) = DBI -> connect(@dsn, {PrintError => 0});
+my($dbh) = DBI -> connect(@dsn, {RaiseError => 1, PrintError => 1, AutoCommit => 1});
 
 ok($dbh, 'Created $dbh');
 
