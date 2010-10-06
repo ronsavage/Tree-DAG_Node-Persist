@@ -16,7 +16,7 @@ name: Tree-DAG_Node-Persist
 provides:
   Tree::DAG_Node::Persist:
     file: lib/Tree/DAG_Node/Persist.pm
-    version: 1.00
+    version: 1.01
 requires:
   DBD::SQLite: 1.29
   DBI: 1.611
@@ -28,4 +28,4 @@ requires:
   common::sense: 3
 resources:
   license: http://www.perlfoundation.org/artistic_license_1_0
-version: 1.00
+version: 1.01
