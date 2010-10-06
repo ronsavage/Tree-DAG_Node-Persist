@@ -126,7 +126,7 @@ sub read_data
 
 # --------------------------------------------------
 
-my($temp_file_handle, $temp_file_name) = File::Temp::tempfile('temp.XXXX', UNLINK => 1);
+my($temp_file_handle, $temp_file_name) = File::Temp::tempfile('temp.XXXX', EXLOCK => 0, UNLINK => 1);
 my(@dsn)                               =
 (
 $ENV{DBI_DSN}  || "dbi:SQLite:$temp_file_name",
