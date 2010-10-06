@@ -485,6 +485,10 @@ temp directory.
 
 =back
 
+=head1 Machine-Readable Change Log
+
+The file CHANGES was converted into Changelog.ini by L<Module::Metadata::Changes>.
+
 =head1 See Also
 
 L<Data::NestedSet>. This module has its own list of See Also references.

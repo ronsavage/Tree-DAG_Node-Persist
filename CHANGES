@@ -1,4 +1,11 @@
 Revision history for Perl extension Tree:DAG_Node::Persist.
 
+1.01  Thu Oct  7  8:57:00 2010
+	  - Add EXLOCK => 0 to the options used by File::Temp in t/test.t. Thanx to Slaven Rezic for help with this.
+	  - Clarify discussion of id field in attributes hash. Detail: Mention that nodes have ids only after
+	  	being written to the database and read back in, so that people don't think the module generates ids.
+	  - Add a new section to the POD: Machine-Readable Change Log, as part of my new policy to promote
+	  	Module::Metadata::Changes.
+
 1.00  Tue Oct  5 11:00:00 2010
 	  - Original version.
