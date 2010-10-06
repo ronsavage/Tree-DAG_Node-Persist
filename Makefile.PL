@@ -1,5 +1,11 @@
 use ExtUtils::MakeMaker;
 
+print "\n";
+print "By default, t/test.t will use File::Temp and DBD::SQLite. \n";
+print "To over-ride this, set the env vars \$DBI_DSN, \$DBI_USER and \$DBI_PASS. \n";
+print "In all cases, t/test.t will use a table called 'menus'. \n";
+print "\n";
+
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 
