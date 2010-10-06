@@ -379,7 +379,11 @@ The value of id is stored in each node when the tree is read in, whereas the val
 
 The id of a node can be recovered from the 'attribute' hashref associated with any node, using the code:
 
-	my($id) = ${$node -> attribute}{id};
+	my($id) = ${$node -> attribute}{id} || 0;
+
+Of course, this id (in the 'attribute' hashref) only exists if the tree has been written to the database and
+read back in. For a brand-new node, which has never been saved, there is no id value by default, hence the '|| 0'.
+Naturally, you're free to jam some sort of value in there yourself.
 
 =item What is mother_id?
 
