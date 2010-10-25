@@ -210,7 +210,7 @@ L<Tree::DAG_Node::Persist> - Persist multiple trees in a single database table, 
 
 	my($offshoot) = Tree::DAG_Node::Persist -> new
 	(
-	 context => 'Offshoot', # Don't use Master or it'll overwrite $tree.
+	 context => 'Offshoot', # Don't use Master or it'll overwrite $tree in the db.
 	 dbh     => $dbh,
 	);
 
@@ -362,31 +362,49 @@ Get or set the value to be used as the name of the table when the tree is writte
 
 Get or set the value to be used as the name of the 'unique_id' column when the tree is written to or read from the database.
 
-=head1 Method: read()
+=head1 Method: read([$extra])
 
 Returns a tree of type L<Tree::DAG_Node> read from the database.
 
-This method does not take any parameters.
+If the optional parameter $extra is provided, then it is assumed to be an arrayref of field names.
+
+C<read($extra)> is used in conjunction with C<write($tree, $extra)>. See that method for more details.
+
+This code shows how to save and restore an attribute of each node called 'page_id'.
+
+Note: In this code, the [] indicate an arrayref, not optional parameters.
+
+	$object -> write($tree, ['page_id']);
+
+	$shrub = $object -> read(['page_id']);
+
+The test program t/test.t demonstrates usage of this feature.
 
 =head1 Method: write_node($node, {...})
 
 This method is called by write(), and - naturally - you'll never call it directly.
 
-=head1 Method: write($tree, $extra)
+=head1 Method: write($tree[, $extra])
 
 Writes a tree of type L<Tree:DAG_Node> to the database.
 
-if the optional parameter $extra is provided, then it is assumed to be an array ref of field names:
+If the optional parameter $extra is provided, then it is assumed to be an arrayref of field names:
 
 =over 4
 
-=item Each field's name is the name of a column in the table
+=item o Each field's name is the name of a column in the table
 
-=item Each field's value is extracted from the attributes of the node
+=item o Each field's value is extracted from the attributes of the node, via the field's name
 
-=item The (field name => field value) pairs are written to each record in the table
+=item o The (field name => field value) pairs are written to each record in the table
 
 =back
+
+In particular note that you can store - in a single table - trees which both do and don't have extra fields.
+
+Just ensure the definition of each extra column is flexible enough to handle these alternatives.
+ 
+The test program t/test.t demonstrates usage of this feature.
 
 This method does not return a meaningful value.
 
