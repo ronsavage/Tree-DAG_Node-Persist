@@ -8,7 +8,7 @@ use DBIx::Admin::CreateTable;
 
 use File::Temp;
 
-use Test::More tests => 22;
+use Test::More tests => 23;
 
 use Tree::DAG_Node;
 
@@ -24,7 +24,8 @@ BEGIN
 sub build_tree
 {
 	my($table_name) = @_;
-	my($data) = &read_data;
+	my($data)       = &read_data;
+	my($page_id)    = 1001;
 
 	my(@field);
 	my($id);
@@ -42,6 +43,8 @@ sub build_tree
 		$tree{$id} = $node;
 
 		$node -> name($name);
+
+		${$node -> attributes}{page_id} = $page_id++;
 
 		if ($mother_id ne 'NULL')
 		{
@@ -101,12 +104,35 @@ sub find_node
 
 # --------------------------------------------------
 
+sub find_page_id
+{
+	my($node, $opt) = @_;
+	my($result)     = 1;
+
+	if (${$node -> attributes}{page_id} == $$opt{page_id})
+	{
+		$$opt{node} = $node;
+		$result     = 0; # Short-circuit walking the tree.
+	}
+
+	return $result;
+
+} # End of find_page_id.
+
+# --------------------------------------------------
+
 sub pretty_print
 {
 	my($node, $opt) = @_;
 	my($id) = ${$node -> attribute}{id} || '';
+	my($s)  = ' ' x $$opt{_depth} . $node -> name . ($id ? " ($id)" : '');
 
-	diag ' ' x $$opt{_depth}, $node -> name, " ($id)\n";
+	if ($$opt{extra})
+	{
+		$s .= '. ' . join(', ', map{"$_: " . ${$node -> attributes}{$_} } @{$$opt{extra} });
+	}
+
+	diag $s;
 
 	return 1;
 
@@ -143,6 +169,8 @@ ok($creator, 'Created $creator');
 
 my($table_name) = 'menus';
 
+diag "Dropping table $table_name, which may not exist";
+
 $creator -> drop_table($table_name);
 
 ok(1, "Dropped table '$table_name' if it existed");
@@ -156,6 +184,7 @@ create table $table_name
 (
 id $primary_key,
 mother_id integer not null,
+page_id integer default 0,
 unique_id integer not null,
 context varchar(255) not null,
 name varchar(255) not null
@@ -187,15 +216,17 @@ $tree -> walk_down({callback => \&pretty_print, _depth => 0});
 
 ok(1, 'Printed master tree');
 
-$master -> write($tree);
+my($extra) = ['page_id'];
+
+$master -> write($tree, $extra);
 
 ok(1, 'Wrote master tree to the database');
 
-my($shrub) = $master -> read;
+my($shrub) = $master -> read($extra);
 
 ok(1, 'Read a copy of the master tree back in from the database');
 
-$shrub -> walk_down({callback => \&pretty_print, _depth => 0});
+$shrub -> walk_down({callback => \&pretty_print, _depth => 0, extra => $extra});
 
 ok(1, 'Printed the copy of the master tree');
 
@@ -288,6 +319,40 @@ $opt =
 $bush -> walk_down($opt);
 
 ok($$opt{id} == 28, "Found node '$junk_food' at node 28 in the modified tree read in from the database");
+
+$opt = 
+{
+	callback => \&find_node,
+	_depth   => 0,
+	node     => '',
+	target   => 'Cheeses',
+};
+
+$bush -> walk_down($opt);
+
+diag 'id: ' . ${$$opt{node} -> attribute}{id} . '. Name: ' . $$opt{node} -> name;
+
+for my $kid ($$opt{node} -> daughters)
+{
+	diag 'Child: ' . $kid -> name . '. Index: ' . $kid -> my_daughter_index;
+}
+
+$target = 1011; # Beverages.
+$opt    = 
+{
+	callback => \&find_page_id,
+	_depth   => 0,
+	page_id  => $target,
+	node     => '',
+};
+
+$shrub -> walk_down($opt);
+
+my($page_id) = ${$$opt{node} -> attributes}{page_id};
+
+diag 'id: ' . ${$$opt{node} -> attributes}{id} . '. Name: ' . $$opt{node} -> name . ". page_id: $page_id";
+
+ok($page_id == $target, "Found node whose page_id is $target in the copy of the master tree read in from the database");
 
 __DATA__
 Food                001       NULL

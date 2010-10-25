@@ -1,5 +1,16 @@
 Revision history for Perl extension Tree:DAG_Node::Persist.
 
+1.03  Mon Oct 25 11:14:00 2010
+	  - Extend write() method to accept an optional arrayref of extra fields to be written to the db.
+	  	The field names are in the call to write(), and the field values are taken from the attributes
+		of the node.
+	  - Note: The field 'id' is automatically written to the db, when write() is called, so
+	  	there is no need to include it in the arrayref.
+	  - Extend read() method likewise to recover this extra data.
+	  - Note: The field 'id' is automatically put in the node's attributes, when read() is called, so
+	  	there is no need to include it in the arrayref.
+	  - Enhance t/test.t to match. See usage of $extra, and where $target = 1011.
+
 1.02  Thu Oct  7 10:01:00 2010
 	  - Add README file.
 	  - Change attrs for DBI -> connect in t/test.t, to {RaiseError => 1, PrintError => 1, AutoCommit => 1}.
