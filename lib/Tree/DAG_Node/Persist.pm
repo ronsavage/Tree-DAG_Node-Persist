@@ -1,6 +1,7 @@
 package Tree::DAG_Node::Persist;
 
-use common::sense;
+use strict;
+use warnings;
 
 use Hash::FieldHash ':all';
 
@@ -17,7 +18,7 @@ use Scalar::Util 'refaddr';
 
 use Tree::DAG_Node;
 
-our $VERSION = '1.03';
+our $VERSION = '1.04';
 
 # -----------------------------------------------
 
@@ -152,7 +153,7 @@ sub write
 	}
 
 	$sql .= ') values (?, ?, ?, ?';
-	
+
 	if ($extra && @$extra)
 	{
 		$sql .= ', ?' x @$extra;
@@ -403,7 +404,7 @@ If the optional parameter $extra is provided, then it is assumed to be an arrayr
 In particular note that you can store - in a single table - trees which both do and don't have extra fields.
 
 Just ensure the definition of each extra column is flexible enough to handle these alternatives.
- 
+
 The test program t/test.t demonstrates usage of this feature.
 
 This method does not return a meaningful value.
@@ -495,7 +496,7 @@ Writing a tree means:
 =item * Delete
 
 All records whose context matches the value you provide are deleted.
- 
+
 =item * Insert
 
 All nodes in the tree are inserted in the table.

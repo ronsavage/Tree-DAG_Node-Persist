@@ -19,7 +19,6 @@ Module::Build -> new
 	},
 	requires =>
 	{
-		common::sense            => 3.0,
 		DBD::SQLite              => 1.29,
 		DBI                      => 1.611,
 		DBIx::Admin::CreateTable => 2.04,

@@ -1,6 +1,7 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
-use common::sense;
+use strict;
+use warnings;
 
 use DBI;
 
@@ -242,7 +243,7 @@ $shrub -> walk_down($opt);
 ok($$opt{count} == 20, 'Found 20 nodes in the copy of the master tree read in from the database');
 
 my($target) = 'Beans and Nuts';
-$opt        = 
+$opt        =
 {
 	callback => \&find_node,
 	_depth   => 0,
@@ -320,7 +321,7 @@ $bush -> walk_down($opt);
 
 ok($$opt{id} == 28, "Found node '$junk_food' at node 28 in the modified tree read in from the database");
 
-$opt = 
+$opt =
 {
 	callback => \&find_node,
 	_depth   => 0,
@@ -338,7 +339,7 @@ for my $kid ($$opt{node} -> daughters)
 }
 
 $target = 1011; # Beverages.
-$opt    = 
+$opt    =
 {
 	callback => \&find_page_id,
 	_depth   => 0,
