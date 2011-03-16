@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 
-use lib 't';
 use strict;
 use warnings;
 
@@ -9,7 +8,7 @@ use File::Temp;
 use Test::More tests => 20;
 
 use Tree::DAG_Node;
-use Tree::DAG_Node::Persist::Test;
+use Tree::DAG_Node::Persist::Create;
 
 # -----------------------------------------------
 
@@ -155,19 +154,20 @@ if (! $ENV{DBI_DSN})
 {
 	my($temp_file_handle, $temp_file_name) = File::Temp::tempfile('temp.XXXX', EXLOCK => 0, UNLINK => 1);
 
-	$ENV{DBI_DSN} = "dbi:SQLite:$temp_file_name";
+	$ENV{DBI_DSN} = "dbi:SQLite:dbname=$temp_file_name";
 }
 
+my($extra)      = ['page_id'];
 my($table_name) = 'menus';
-my($worker)     = Tree::DAG_Node::Persist::Test -> new(table_name => $table_name);
-my($dbh)        = $worker -> connect;
+my($creator)    = Tree::DAG_Node::Persist::Create -> new(extra_columns => "$$extra[0]:integer:default:0", table_name => $table_name);
+my($dbh)        = $creator -> connect;
 
 ok($dbh, 'Created $dbh');
 
 diag "\nDropping table '$table_name', which may not exist. Don't panic if you get 1 or 2 error messages";
 diag "One message will be for a missing table, and the other for a missing sequence";
 
-my($result) = $worker -> drop_create;
+my($result) = $creator -> drop_create;
 
 ok($result == 0, "Created table '$table_name'");
 
@@ -193,8 +193,6 @@ ok($tree, 'Populated master tree');
 $tree -> walk_down({callback => \&pretty_print, _depth => 0});
 
 ok(1, 'Printed master tree');
-
-my($extra) = ['page_id'];
 
 $master -> write($tree, $extra);
 

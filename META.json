@@ -1,0 +1,57 @@
+{
+   "abstract" : "Persist multiple trees in a single db table, preserving child order",
+   "author" : [
+      "Ron Savage <ron@savage.net.au>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.110580",
+   "license" : [
+      "artistic_1"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Tree-DAG_Node-Persist",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Test::Pod" : "1.41",
+            "Test::Simple" : "0.94"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.38"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "DBD::SQLite" : "1.29",
+            "DBI" : "1.611",
+            "DBIx::Admin::CreateTable" : "2.04",
+            "File::Temp" : "0.22",
+            "Hash::FieldHash" : "0.1",
+            "Scalar::Util" : "1.23",
+            "Tree::DAG_Node" : "1.06"
+         }
+      }
+   },
+   "provides" : {
+      "Tree::DAG_Node::Persist" : {
+         "file" : "lib/Tree/DAG_Node/Persist.pm",
+         "version" : "1.05"
+      },
+      "Tree::DAG_Node::Persist::Create" : {
+         "file" : "lib/Tree/DAG_Node/Persist/Create.pm",
+         "version" : "1.05"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://opensource.org/licenses/artistic-license.php"
+      ]
+   },
+   "version" : "1.05"
+}
