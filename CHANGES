@@ -1,5 +1,13 @@
 Revision history for Perl extension Tree:DAG_Node::Persist.
 
+1.05  Wed Mar 16 11:52:00 2011
+	- No code changes. No need to upgrade.
+	- Add scripts/create.table.pl, to make it easy to create the 'trees' table.
+	- Run with -h to get help, especially regarding $DBI_DSN, $DBI_USER, $DBI_PASS.
+	- Run with -t to use another table name.
+	- Add t/Tree/DAG_Node/Persist/Tree.pm for use by scripts/create.table.pl and t/test.t.
+	- Note: Both these programs use the same 3 env vars.
+
 1.04  Tue Feb 15 15:07:00 2011
 	- Replace /usr/bin/perl with /usr/bin/env perl.
 	- Replace common::sense with use strict and use warnings, to get uninit var warnings.

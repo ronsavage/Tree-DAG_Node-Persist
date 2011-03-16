@@ -24,7 +24,7 @@ if ($option_parser -> getoptions
 (
  \%option,
  'help',
- 'tableName=s',
+ 'table_name=s',
 ) )
 {
 	pod2usage(1) if ($option{'help'});
@@ -52,7 +52,7 @@ The program uses $DBI_DSN, $DBI_USER and $DBI_PASS.
 
 	Options:
 	-help
-	-tableName aTableName
+	-table_name aTableName
 
 All switches can be reduced to a single letter.
 
@@ -66,7 +66,7 @@ Exit value: 0.
 
 Print help and exit.
 
-=item -tableName aTableName
+=item -table_name aTableName
 
 Use this to override the default table name 'trees'.
 
