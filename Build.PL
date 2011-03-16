@@ -1,9 +1,8 @@
 use Module::Build;
 
 print "\n";
-print "By default, t/test.t will use File::Temp and DBD::SQLite. \n";
-print "To over-ride this, set the env vars \$DBI_DSN, \$DBI_USER and \$DBI_PASS. \n";
-print "In all cases, t/test.t will use a table called 'menus'. \n";
+print "Testing uses the env vars \$DBI_DSN, \$DBI_USER and \$DBI_PASS. \n";
+print "t/test.t uses a table called 'menus' (not the default 'trees'). \n";
 print "\n";
 
 Module::Build -> new
