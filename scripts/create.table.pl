@@ -53,7 +53,7 @@ create.table.pl [options]
 
 	Options:
 	-dsn DSN
-	-extra_columns aStringOfColumnNames
+	-extra_columns columnDefinitions
 	-help
 	-password aPassword
 	-table_name aTableName
@@ -73,9 +73,9 @@ Defaults to $DBI_DSN.
 
 Sample: dbi:Pg:dbname=menus or dbi:SQLite:dbname=/tmp/menus.sqlite.
 
-=item -extra_columns aStringOfColumnNames
+=item -extra_columns columnDefinitions
 
-The names of one or more extra columns to add to the table at create time.
+The names and details of one or more extra columns to add to the table at create time.
 
 Separate the names with commas.
 
