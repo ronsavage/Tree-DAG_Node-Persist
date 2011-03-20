@@ -16,6 +16,10 @@ Module::Build -> new
 		Test::Simple => 0.94, # For Test::More.
 		Test::Pod    => 1.41,
 	},
+	configure_requires =>
+	{
+		Module::Build => 0.3800,
+	},
 	requires =>
 	{
 		DBD::SQLite              => 1.29,

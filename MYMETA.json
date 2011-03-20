@@ -22,7 +22,7 @@
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.36"
+            "Module::Build" : "0.38"
          }
       },
       "runtime" : {
@@ -40,7 +40,11 @@
    "provides" : {
       "Tree::DAG_Node::Persist" : {
          "file" : "lib/Tree/DAG_Node/Persist.pm",
-         "version" : "1.03"
+         "version" : "1.05"
+      },
+      "Tree::DAG_Node::Persist::Create" : {
+         "file" : "lib/Tree/DAG_Node/Persist/Create.pm",
+         "version" : "1.05"
       }
    },
    "release_status" : "stable",
@@ -49,5 +53,5 @@
          "http://opensource.org/licenses/artistic-license.php"
       ]
    },
-   "version" : "1.03"
+   "version" : "1.05"
 }
