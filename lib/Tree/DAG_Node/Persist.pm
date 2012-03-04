@@ -185,7 +185,7 @@ sub write
 
 =head1 NAME
 
-L<Tree::DAG_Node::Persist> - Persist multiple trees in a single db table, preserving child order
+Tree::DAG_Node::Persist - Persist multiple trees in a single db table, preserving child order
 
 =head1 Synopsis
 
