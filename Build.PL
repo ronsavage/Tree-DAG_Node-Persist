@@ -28,7 +28,9 @@ Module::Build -> new
 		File::Temp               => 0.22,
 		Hash::FieldHash          => 0.1,
 		Scalar::Util             => 1.23,
+		strict                   => 0,
 		Tree::DAG_Node           => 1.06,
+		warnings                 => 0,
 	},
 ) -> create_build_script();
 

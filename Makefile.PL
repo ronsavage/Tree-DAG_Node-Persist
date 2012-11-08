@@ -36,9 +36,11 @@ WriteMakefile
 		File::Temp               => 0.22,
 		Hash::FieldHash          => 0.1,
 		Scalar::Util             => 1.23,
+		strict                   => 0,
 		Test::Simple             => 0.94, # For Test::More.
 		Test::Pod                => 1.41,
 		Tree::DAG_Node           => 1.06,
+		warnings                 => 0,
 	},
 	VERSION_FROM => 'lib/Tree/DAG_Node/Persist.pm',
 );
