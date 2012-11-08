@@ -16,7 +16,7 @@ fieldhash my %password      => 'password';
 fieldhash my %table_name    => 'table_name';
 fieldhash my %username      => 'username';
 
-our $VERSION = '1.05';
+our $VERSION = '1.06';
 
 # -----------------------------------------------
 

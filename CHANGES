@@ -1,5 +1,10 @@
 Revision history for Perl extension Tree:DAG_Node::Persist.
 
+1.06  Thu Nov  8 12:38:00 2012
+	- No code changes.
+	- For pre-reqs such as strict, warnings, etc, which ship with Perl, set the version # to 0.
+		Reported as RT#80663 by Father Chrysostomos for Tree::DAG_Node.
+
 1.05  Wed Mar 16 11:52:00 2011
 	- No code changes. No need to upgrade.
 	- Add scripts/create.table.pl, to make it easy to create the 'trees' table.
