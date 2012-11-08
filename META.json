@@ -33,7 +33,9 @@
             "File::Temp" : "0.22",
             "Hash::FieldHash" : "0.1",
             "Scalar::Util" : "1.23",
-            "Tree::DAG_Node" : "1.06"
+            "Tree::DAG_Node" : "1.06",
+            "strict" : "0",
+            "warnings" : "0"
          }
       }
    },

@@ -29,6 +29,8 @@ requires:
   Hash::FieldHash: 0.1
   Scalar::Util: 1.23
   Tree::DAG_Node: 1.06
+  strict: 0
+  warnings: 0
 resources:
   license: http://www.perlfoundation.org/artistic_license_1_0
 version: 1.06
