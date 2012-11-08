@@ -17,10 +17,10 @@ name: Tree-DAG_Node-Persist
 provides:
   Tree::DAG_Node::Persist:
     file: lib/Tree/DAG_Node/Persist.pm
-    version: 1.05
+    version: 1.06
   Tree::DAG_Node::Persist::Create:
     file: lib/Tree/DAG_Node/Persist/Create.pm
-    version: 1.05
+    version: 1.06
 requires:
   DBD::SQLite: 1.29
   DBI: 1.611
@@ -30,5 +30,5 @@ requires:
   Scalar::Util: 1.23
   Tree::DAG_Node: 1.06
 resources:
-  license: http://opensource.org/licenses/artistic-license.php
-version: 1.05
+  license: http://www.perlfoundation.org/artistic_license_1_0
+version: 1.06

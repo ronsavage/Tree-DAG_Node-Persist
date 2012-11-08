@@ -40,18 +40,18 @@
    "provides" : {
       "Tree::DAG_Node::Persist" : {
          "file" : "lib/Tree/DAG_Node/Persist.pm",
-         "version" : "1.05"
+         "version" : "1.06"
       },
       "Tree::DAG_Node::Persist::Create" : {
          "file" : "lib/Tree/DAG_Node/Persist/Create.pm",
-         "version" : "1.05"
+         "version" : "1.06"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "license" : [
-         "http://opensource.org/licenses/artistic-license.php"
+         "http://www.perlfoundation.org/artistic_license_1_0"
       ]
    },
-   "version" : "1.05"
+   "version" : "1.06"
 }
