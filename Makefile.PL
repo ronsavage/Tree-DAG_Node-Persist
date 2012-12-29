@@ -27,6 +27,7 @@ WriteMakefile
 	},
 	DISTNAME  => 'Tree-DAG_Node-Persist',
 	NAME      => 'Tree::DAG_Node::Persist',
+	LICENSE   => 'perl_5',
 	PL_FILES  => {},
 	PREREQ_PM =>
 	{

@@ -8,7 +8,7 @@ print "\n";
 Module::Build -> new
 (
 	module_name    => 'Tree::DAG_Node::Persist',
-	license        => 'artistic',
+	license        => 'perl_5',
 	dist_abstract  => 'Persist multiple trees in a single db table, preserving child order',
 	dist_author    => 'Ron Savage <ron@savage.net.au>',
 	build_requires =>
