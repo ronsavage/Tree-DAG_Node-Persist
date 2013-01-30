@@ -38,8 +38,8 @@ WriteMakefile
 		Hash::FieldHash          => 0.1,
 		Scalar::Util             => 1.23,
 		strict                   => 0,
-		Test::Simple             => 0.94, # For Test::More.
-		Test::Pod                => 1.41,
+		Test::Simple             => 0.98,
+		Test::Pod                => 1.45,
 		Tree::DAG_Node           => 1.06,
 		warnings                 => 0,
 	},

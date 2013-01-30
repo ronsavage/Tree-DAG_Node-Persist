@@ -13,8 +13,8 @@ Module::Build -> new
 	dist_author    => 'Ron Savage <ron@savage.net.au>',
 	build_requires =>
 	{
-		Test::Simple => 0.94, # For Test::More.
-		Test::Pod    => 1.41,
+		Test::Simple => 0.98,
+		Test::Pod    => 1.45,
 	},
 	configure_requires =>
 	{
