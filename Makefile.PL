@@ -39,7 +39,7 @@ WriteMakefile
 		Scalar::Util             => 1.23,
 		strict                   => 0,
 		Test::More             => 0.98,
-		Test::Pod                => 1.45,
+#		Test::Pod                => 1.45, # Make it optional. See t/pod.t
 		Tree::DAG_Node           => 1.06,
 		warnings                 => 0,
 	},
