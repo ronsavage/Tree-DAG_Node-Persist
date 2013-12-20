@@ -1,6 +1,6 @@
-README file for Tree-DAG_Node-Persist.
+README file for Tree::DAG_Node::Persist.
 
-See also: Changes.txt.
+See also: CHANGES and Changelog.ini.
 
 Warning: WinZip 8.1 and 9.0 both contain an 'accidental' bug which stops
 them recognizing POSIX-style directory structures in valid tar files.
@@ -9,8 +9,8 @@ ftp://ftp.info-zip.org/pub/infozip/
 
 1 Installing from a Unix-like distro
 ------------------------------------
-shell>gunzip Tree-DAG_Node-Persist-1.00.tgz
-shell>tar mxvf Tree-DAG_Node-Persist-1.00.tar
+shell>gunzip Tree-DAG_Node-Persist-1.06.tgz
+shell>tar mxvf Tree-DAG_Node-Persist-1.06.tar
 
 On Unix-like systems, assuming you have installed Module::Build V 0.25+:
 
@@ -39,11 +39,11 @@ shell>exit            (for Unix-like systems)
 
 On all systems:
 
-Run Tree-DAG_Node-Persist.pm through you favourite pod2html translator.
+Run Persist.pm through your favourite pod2html translator.
 
 2 Installing from an ActiveState distro
 ---------------------------------------
-shell>unzip Tree-DAG_Node-Persist-1.00.zip
+shell>unzip Tree-DAG_Node-Persist-1.06.zip
 shell>ppm install --location=. Tree-DAG_Node-Persist
-shell>del Tree-DAG_Node-Persist-1.00.ppd
-shell>del PPM-Tree-DAG_Node-Persist-1.00.tar.gz
+shell>del Tree-DAG_Node-Persist-1.06.ppd
+shell>del PPM-Tree-DAG_Node-Persist-1.06.tar.gz
