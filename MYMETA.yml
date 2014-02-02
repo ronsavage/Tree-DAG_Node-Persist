@@ -3,12 +3,11 @@ abstract: 'Persist multiple trees in a single db table, preserving child order'
 author:
   - 'Ron Savage <ron@savage.net.au>'
 build_requires:
-  Test::Pod: 1.41
-  Test::Simple: 0.94
+  Test::More: 0.98
 configure_requires:
   Module::Build: 0.38
 dynamic_config: 0
-generated_by: 'Module::Build version 0.4003, CPAN::Meta::Converter version 2.120630'
+generated_by: 'Module::Build version 0.4204, CPAN::Meta::Converter version 2.120921'
 license: artistic
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
