@@ -4,7 +4,7 @@
       "Ron Savage <ron@savage.net.au>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Build version 0.4204",
+   "generated_by" : "Module::Build version 0.4211",
    "license" : [
       "artistic_1"
    ],
@@ -16,23 +16,25 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Test::More" : "0.98"
+            "Test::More" : "1.001014"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.4211"
          }
       },
       "runtime" : {
          "requires" : {
-            "DBD::SQLite" : "1.29",
-            "DBI" : "1.611",
-            "DBIx::Admin::CreateTable" : "2.04",
-            "File::Temp" : "0.22",
-            "Hash::FieldHash" : "0.1",
-            "Scalar::Util" : "1.23",
-            "Tree::DAG_Node" : "1.06",
+            "DBD::SQLite" : "1.46",
+            "DBI" : "1.633",
+            "DBIx::Admin::CreateTable" : "2.1",
+            "File::Temp" : "0",
+            "Getopt::Long" : "2.42",
+            "Hash::FieldHash" : "0.14",
+            "Pod::Usage" : "1.65",
+            "Scalar::Util" : "1.41",
+            "Tree::DAG_Node" : "1.24",
             "strict" : "0",
             "warnings" : "0"
          }

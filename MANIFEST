@@ -1,6 +1,6 @@
 Build.PL
 Changelog.ini
-CHANGES
+Changes
 lib/Tree/DAG_Node/Persist.pm
 lib/Tree/DAG_Node/Persist/Create.pm
 Makefile.PL
@@ -9,5 +9,5 @@ META.json
 META.yml
 README
 scripts/create.table.pl
-t/pod.t
 t/test.t
+xt/author/pod.t

@@ -18,7 +18,7 @@ use Scalar::Util 'refaddr';
 
 use Tree::DAG_Node;
 
-our $VERSION = '1.06';
+our $VERSION = '1.07';
 
 # -----------------------------------------------
 
@@ -219,8 +219,8 @@ Tree::DAG_Node::Persist - Persist multiple trees in a single db table, preservin
 
 =head1 Description
 
-L<Tree::DAG_Node::Persist> reads/writes multiple trees from/to a single database table, where those trees
-are built using L<Tree::DAG_Node>.
+L<Tree::DAG_Node::Persist> reads/writes multiple trees from/to a single database table, where those
+trees are built using L<Tree::DAG_Node>.
 
 See the L</FAQ> for details of the table structure.
 
@@ -259,27 +259,33 @@ or:
 
 =head1 Method: context([$new_value])
 
-Get or set the value to be used in the 'context' column when the tree is written to or read from the database.
+Get or set the value to be used in the 'context' column when the tree is written to or read from
+the database.
 
 =head1 Method: context_col([$new_value])
 
-Get or set the value to be used as the name of the 'context' column when the tree is written to or read from the database.
+Get or set the value to be used as the name of the 'context' column when the tree is written to or
+read from the database.
 
 =head1 Method: dbh([$new_value])
 
-Get or set the value to be used as the database handle when the tree is written to or read from the database.
+Get or set the value to be used as the database handle when the tree is written to or read from the
+database.
 
 =head1 Method: id_col([$new_value])
 
-Get or set the value to be used as the name of the 'id' column when the tree is written to or read from the database.
+Get or set the value to be used as the name of the 'id' column when the tree is written to or read
+from the database.
 
 =head1 Method: mother_id_col([$new_value])
 
-Get or set the value to be used as the name of the 'mother_id' column when the tree is written to or read from the database.
+Get or set the value to be used as the name of the 'mother_id' column when the tree is written to
+or read from the database.
 
 =head1 Method: name_col([$new_value])
 
-Get or set the value to be used as the name of the 'name' column when the tree is written to or read from the database.
+Get or set the value to be used as the name of the 'name' column when the tree is written to or
+read from the database.
 
 =head1 Method: new({...})
 
@@ -291,7 +297,8 @@ Key-value pairs in the hashref:
 
 =item context => $a_string
 
-This is the value to be used in the 'context' column when the tree is written to or read from the database.
+This is the value to be used in the 'context' column when the tree is written to or read from the
+database.
 
 This key is optional.
 
@@ -299,7 +306,8 @@ It defaults to '-'.
 
 =item context_col => $a_string
 
-This is the name to be used for the 'context' column when the tree is written to or read from the database.
+This is the name to be used for the 'context' column when the tree is written to or read from the
+database.
 
 This key is optional.
 
@@ -315,7 +323,8 @@ There is no default.
 
 =item id_col => $a_string
 
-This is the name to be used for the 'id' column when the tree is written to or read from the database.
+This is the name to be used for the 'id' column when the tree is written to or read from the
+database.
 
 This key is optional.
 
@@ -323,7 +332,8 @@ If defaults to 'id'.
 
 =item mother_id_col => $a_string
 
-This is the name to be used for the 'mother_id' column when the tree is written to or read from the database.
+This is the name to be used for the 'mother_id' column when the tree is written to or read from the
+database.
 
 This key is optional.
 
@@ -347,7 +357,8 @@ If defaults to 'trees'.
 
 =item unique_id_col => $a_string
 
-This is the name to be used for the 'unique_id' column when the tree is written to or read from the database.
+This is the name to be used for the 'unique_id' column when the tree is written to or read from the
+database.
 
 This key is optional.
 
@@ -357,11 +368,13 @@ If defaults to 'unique_id'.
 
 =head1 Method: table name([$new_value])
 
-Get or set the value to be used as the name of the table when the tree is written to or read from the database.
+Get or set the value to be used as the name of the table when the tree is written to or read from
+the database.
 
 =head1 Method: unique_id_col([$new_value])
 
-Get or set the value to be used as the name of the 'unique_id' column when the tree is written to or read from the database.
+Get or set the value to be used as the name of the 'unique_id' column when the tree is written to
+or read from the database.
 
 =head1 Method: read([$extra])
 
@@ -369,7 +382,8 @@ Returns a tree of type L<Tree::DAG_Node> read from the database.
 
 If the optional parameter $extra is provided, then it is assumed to be an arrayref of field names.
 
-C<read($extra)> is used in conjunction with C<write($tree, $extra)>. See that method for more details.
+C<read($extra)> is used in conjunction with C<write($tree, $extra)>. See that method for more
+details.
 
 This code shows how to save and restore an attribute of each node called 'page_id'.
 
@@ -401,7 +415,8 @@ If the optional parameter $extra is provided, then it is assumed to be an arrayr
 
 =back
 
-In particular note that you can store - in a single table - trees which both do and don't have extra fields.
+In particular note that you can store - in a single table - trees which both do and don't have extra
+fields.
 
 Just ensure the definition of each extra column is flexible enough to handle these alternatives.
 
@@ -430,25 +445,28 @@ You can generate the $primary_key text using L<DBIx::Admin::CreateTable>, as is 
 
 =item What is id?
 
-Strictly speaking, the id field does not have to be a primary key, but it must be unique, because it's used
-as a hash key when a tree is read in from the database.
+Strictly speaking, the id field does not have to be a primary key, but it must be unique, because
+it's used as a hash key when a tree is read in from the database.
 
-The value of id is stored in each node when the tree is read in, whereas the values of context and unique_id are not.
+The value of id is stored in each node when the tree is read in, whereas the values of context and
+unique_id are not.
 
-The id of a node can be recovered from the 'attribute' hashref associated with any node, using the code:
+The id of a node can be recovered from the 'attribute' hashref associated with any node, using the
+code:
 
 	my($id) = ${$node -> attribute}{id} || 0;
 
-Of course, this id (in the 'attribute' hashref) only exists if the tree has been written to the database and
-read back in. For a brand-new node, which has never been saved, there is no id value by default, hence the '|| 0'.
-Naturally, you're free to jam some sort of value in there yourself.
+Of course, this id (in the 'attribute' hashref) only exists if the tree has been written to the
+database and read back in. For a brand-new node, which has never been saved, there is no id value by
+default, hence the '|| 0'. Naturally, you're free to jam some sort of value in there yourself.
 
 =item What is mother_id?
 
-It is the id of the node which is the mother of the 'current' node. Using 'mother' rather than 'parent',
-and 'daughter' rather than 'child', is terminology I have adopted from L<Tree::DAG_Node>.
+It is the id of the node which is the mother of the 'current' node. Using 'mother' rather than
+'parent', and 'daughter' rather than 'child', is terminology I have adopted from L<Tree::DAG_Node>.
 
-The mother_id of the root of each tree is 0, allowing you to use 'not null' on the definition of mother_id.
+The mother_id of the root of each tree is 0, allowing you to use 'not null' on the definition of
+mother_id.
 
 This 'not null' convention is adopted from:
 
@@ -457,29 +475,35 @@ This 'not null' convention is adopted from:
 	1-55860-576-2
 	Section 6.9, page 120, Design Advice for NULLs
 
-The mother_id of a node can be recovered from the 'attribute' hashref associated with any node, using the code:
+The mother_id of a node can be recovered from the 'attribute' hashref associated with any node,
+using the code:
 
 	my($mother) = $node -> mother;
 	my($id)     = $mother ? ${$mother -> attribute}{id} : 0;
 
 =item What is unique_id?
 
-For a given tree (in the database), each node has the same value for context, but a unique value for unique_id.
+For a given tree (in the database), each node has the same value for context, but a unique value
+for unique_id.
 
 The reason the id field is not used for this, is that nodes in one tree may be deleted, so that when
-a second tree is written to the database, if the database reuses ids, the order of ids no longer means anything.
+a second tree is written to the database, if the database reuses ids, the order of ids no longer
+means anything.
 
-The module writes a node to the database before it writes that node's children. By generating a unique
-value as the nodes are written, the module guarantees a node's unique_id will be less that the unique_ids
-of each of its children.
+The module writes a node to the database before it writes that node's children. By generating a
+unique value as the nodes are written, the module guarantees a node's unique_id will be less that
+the unique_ids of each of its children.
 
-Then, when the nodes are read back in, the database is used to sort the nodes using their unique_id as the sort key.
+Then, when the nodes are read back in, the database is used to sort the nodes using their unique_id
+as the sort key.
 
 In this manner, the order of children belonging to a node is preserved.
 
-The field unique_id is only unique for a given tree (in the database). The root of each tree has a unique_id of 1.
+The field unique_id is only unique for a given tree (in the database). The root of each tree has a
+unique_id of 1.
 
-The value of id is stored in each node when the tree is read in, whereas the value of context and unique_id are not.
+The value of id is stored in each node when the tree is read in, whereas the value of context and
+unique_id are not.
 
 =item What is context?
 
@@ -503,15 +527,17 @@ All nodes in the tree are inserted in the table.
 
 =back
 
-The reason for this 2-step process is to avoid depending on ids provided by the database, which may be
-reused after records are deleted.
+The reason for this 2-step process is to avoid depending on ids provided by the database, which may
+be reused after records are deleted.
 
-By inserting the tree afresh each time, we can ensure the unique_id values for the given tree are generated
-in such a way that when the records are read back in, sorted by unique_id, each mother node is read before
-any of its daughters. This makes it easy to insert the incoming data into a new tree in a reliable manner,
-and to guarantee daughter nodes have their order preseved throughout the write-then-read cycle.
+By inserting the tree afresh each time, we can ensure the unique_id values for the given tree are
+generated in such a way that when the records are read back in, sorted by unique_id, each mother
+node is read before any of its daughters. This makes it easy to insert the incoming data into a new
+tree in a reliable manner, and to guarantee daughter nodes have their order preseved throughout the
+write-then-read cycle.
 
-The value of id is stored in each node when the tree is read in, whereas the value of context and unique_id are not.
+The value of id is stored in each node when the tree is read in, whereas the value of context and
+unique_id are not.
 
 =item What is name?
 
@@ -535,11 +561,11 @@ See sub pretty_print() in t/test.t, and where it's called from.
 
 =item How do I run t/test.t?
 
-You can set the environment variables $DBI_DSN, $DBI_USER and $DBI_PASS, and the program will use a table
-called 'menus'. The I<default> table name is 'trees'.
+You can set the environment variables $DBI_DSN, $DBI_USER and $DBI_PASS, and the program will use a
+table called 'menus'. The I<default> table name is 'trees'.
 
-Or, if $DBI_DSN has no value, the program will use SQLite and a default file (i.e. database) name, in the
-temp directory.
+Or, if $DBI_DSN has no value, the program will use SQLite and a default file (i.e. database) name,
+in the temp directory.
 
 =back
 
@@ -564,6 +590,10 @@ L<Tree::Persist>.
 Thanx to the author(s) of Tree::Persist, for various ideas implemented in this module.
 
 L<Tree::DAG_Node>.
+
+=head1 Repository
+
+L<https://github.com/ronsavage/Tree-DAG_Node-Persist>.
 
 =head1 Support
 

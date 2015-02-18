@@ -1,3 +1,6 @@
+use strict;
+use warnings;
+
 use ExtUtils::MakeMaker;
 
 print "\n";
@@ -9,7 +12,7 @@ print "\n";
 # See lib/ExtUtils/MakeMaker.pm for details of how to influence
 # the contents of the Makefile that is written.
 
-WriteMakefile
+my(%params) =
 (
 	($] ge '5.005') ?
 	(
@@ -31,17 +34,48 @@ WriteMakefile
 	PL_FILES  => {},
 	PREREQ_PM =>
 	{
-		DBD::SQLite              => 1.29,
-		DBI                      => 1.611,
-		DBIx::Admin::CreateTable => 2.04,
-		File::Temp               => 0.22,
-		Hash::FieldHash          => 0.1,
-		Scalar::Util             => 1.23,
-		strict                   => 0,
-		Test::More             => 0.98,
-#		Test::Pod                => 1.45, # Make it optional. See t/pod.t
-		Tree::DAG_Node           => 1.06,
-		warnings                 => 0,
+		'DBD::SQLite'              => 1.46,
+		'DBI'                      => 1.633,
+		'DBIx::Admin::CreateTable' => 2.10,
+		'File::Temp'               => 0,
+		'Getopt::Long'             => 2.42,
+		'Hash::FieldHash'          => 0.14,
+		'Pod::Usage'               => 1.65,
+		'Scalar::Util'             => 1.41,
+		'strict'                   => 0,
+		'Test::More'               => 1.001014,
+#		'Test::Pod'                => 1.48, # Make it optional. See t/pod.t
+		'Tree::DAG_Node'           => 1.24,
+		'warnings'                 => 0,
 	},
 	VERSION_FROM => 'lib/Tree/DAG_Node/Persist.pm',
 );
+
+if ( ($ExtUtils::MakeMaker::VERSION =~ /^\d\.\d\d$/) && ($ExtUtils::MakeMaker::VERSION > 6.30) )
+{
+	$params{LICENSE} = 'artistic_2';
+}
+
+if ($ExtUtils::MakeMaker::VERSION ge '6.46')
+{
+	$params{META_MERGE} =
+	{
+		'meta-spec' =>
+		{
+			version => 2,
+		},
+		resources   =>
+		{
+			bugtracker => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Tree-DAG_Node-Persist',
+			license    => 'http://opensource.org/licenses/Artistic-2.0',
+			repository =>
+			{
+				type => 'git',
+				url  => 'https://github.com/ronsavage/Tree-DAG_Node-Persist.git',
+				web  => 'https://github.com/ronsavage/Tree-DAG_Node-Persist',
+			},
+		},
+	};
+}
+
+WriteMakefile(%params);

@@ -16,7 +16,7 @@ fieldhash my %password      => 'password';
 fieldhash my %table_name    => 'table_name';
 fieldhash my %username      => 'username';
 
-our $VERSION = '1.06';
+our $VERSION = '1.07';
 
 # -----------------------------------------------
 
@@ -64,7 +64,7 @@ sub drop_create
 		{
 			$extra =~ tr/:/ /;
 
-			push @sql, "$extra,"; 
+			push @sql, "$extra,";
 		}
 
 		$extra_sql = join("\n", @sql);
