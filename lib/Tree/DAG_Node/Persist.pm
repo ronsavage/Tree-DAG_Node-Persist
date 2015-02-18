@@ -18,7 +18,7 @@ use Scalar::Util 'refaddr';
 
 use Tree::DAG_Node;
 
-our $VERSION = '1.07';
+our $VERSION = '1.08';
 
 # -----------------------------------------------
 

@@ -1,11 +1,13 @@
 Revision history for Perl extension Tree:DAG_Node::Persist.
 
+1.08  Wed Feb 18 11:11:00 2015
+	- Add repository: https://github.com/ronsavage/Tree-DAG_Node-Persist.
+
 1.07  Tue Feb 17 13:40:00 2015
 	- Update pre-reqs.
 	- Rename CHANGES to Changes as per CPAN::Changes::Spec.
 	- Shrink line widths in this file, and in the docs, to 100 chars max.
 	- Move t/pod.t to xt/author/.
-	- Add repository: https://github.com/ronsavage/Tree-DAG_Node-Persist.
 
 1.06  Thu Nov  8 12:38:00 2012
 	- No code changes.
