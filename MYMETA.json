@@ -6,7 +6,7 @@
    "dynamic_config" : 0,
    "generated_by" : "Module::Build version 0.4211",
    "license" : [
-      "artistic_1"
+      "artistic_2"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
@@ -43,18 +43,18 @@
    "provides" : {
       "Tree::DAG_Node::Persist" : {
          "file" : "lib/Tree/DAG_Node/Persist.pm",
-         "version" : "1.06"
+         "version" : "1.07"
       },
       "Tree::DAG_Node::Persist::Create" : {
          "file" : "lib/Tree/DAG_Node/Persist/Create.pm",
-         "version" : "1.06"
+         "version" : "1.07"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "license" : [
-         "http://www.perlfoundation.org/artistic_license_1_0"
+         "http://www.perlfoundation.org/artistic_license_2_0"
       ]
    },
-   "version" : "1.06"
+   "version" : "1.07"
 }

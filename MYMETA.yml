@@ -8,7 +8,7 @@ configure_requires:
   Module::Build: '0.4211'
 dynamic_config: 0
 generated_by: 'Module::Build version 0.4211, CPAN::Meta::Converter version 2.142060'
-license: artistic
+license: artistic_2
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: '1.4'
@@ -16,10 +16,10 @@ name: Tree-DAG_Node-Persist
 provides:
   Tree::DAG_Node::Persist:
     file: lib/Tree/DAG_Node/Persist.pm
-    version: '1.06'
+    version: '1.07'
   Tree::DAG_Node::Persist::Create:
     file: lib/Tree/DAG_Node/Persist/Create.pm
-    version: '1.06'
+    version: '1.07'
 requires:
   DBD::SQLite: '1.46'
   DBI: '1.633'
@@ -33,5 +33,5 @@ requires:
   strict: '0'
   warnings: '0'
 resources:
-  license: http://www.perlfoundation.org/artistic_license_1_0
-version: '1.06'
+  license: http://www.perlfoundation.org/artistic_license_2_0
+version: '1.07'
