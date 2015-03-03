@@ -3,6 +3,8 @@ use warnings;
 
 use ExtUtils::MakeMaker;
 
+# ----------------
+
 print "\n";
 print "By default, t/test.t will use File::Temp and DBD::SQLite. \n";
 print "To over-ride this, set the env vars \$DBI_DSN, \$DBI_USER and \$DBI_PASS. \n";
@@ -34,19 +36,19 @@ my(%params) =
 	PL_FILES  => {},
 	PREREQ_PM =>
 	{
-		'DBD::SQLite'              => 1.46,
-		'DBI'                      => 1.633,
+		'DBD::SQLite' => 1.46,
+		'DBI' => 1.633,
 		'DBIx::Admin::CreateTable' => 2.10,
-		'File::Temp'               => 0,
-		'Getopt::Long'             => 2.42,
-		'Hash::FieldHash'          => 0.14,
-		'Pod::Usage'               => 1.65,
-		'Scalar::Util'             => 1.41,
-		'strict'                   => 0,
-		'Test::More'               => 1.001014,
-#		'Test::Pod'                => 1.48, # Make it optional. See t/pod.t
-		'Tree::DAG_Node'           => 1.24,
-		'warnings'                 => 0,
+		'File::Temp' => 0,
+		'Getopt::Long' => 2.42,
+		'Hash::FieldHash' => 0.14,
+		'Pod::Usage' => 1.65,
+		'Scalar::Util' => 1.41,
+		'strict' => 0,
+		'Test::More' => 1.001014,
+		'Test::Pod' => 1.48,
+		'Tree::DAG_Node' => 1.24,
+		'warnings' => 0,
 	},
 	VERSION_FROM => 'lib/Tree/DAG_Node/Persist.pm',
 );
@@ -62,17 +64,17 @@ if ($ExtUtils::MakeMaker::VERSION ge '6.46')
 	{
 		'meta-spec' =>
 		{
-			version => 2,
+		'version' => 2,
 		},
 		resources   =>
 		{
-			bugtracker => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Tree-DAG_Node-Persist',
-			license    => 'http://opensource.org/licenses/Artistic-2.0',
+		'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Tree-DAG_Node-Persist',
+		'license' => 'http://opensource.org/licenses/Artistic-2.0',
 			repository =>
 			{
-				type => 'git',
-				url  => 'https://github.com/ronsavage/Tree-DAG_Node-Persist.git',
-				web  => 'https://github.com/ronsavage/Tree-DAG_Node-Persist',
+		'type' => 'git',
+		'url' => 'https://github.com/ronsavage/Tree-DAG_Node-Persist.git',
+		'web' => 'https://github.com/ronsavage/Tree-DAG_Node-Persist',
 			},
 		},
 	};
