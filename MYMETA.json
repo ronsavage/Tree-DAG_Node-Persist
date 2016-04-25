@@ -32,13 +32,18 @@
             "File::Temp" : "0",
             "Getopt::Long" : "2.42",
             "Hash::FieldHash" : "0.14",
+            "Moo" : "2.001001",
             "Pod::Usage" : "1.65",
             "Scalar::Util" : "1.41",
-            "Test::More" : "1.001014",
-            "Test::Pod" : "1.48",
             "Tree::DAG_Node" : "1.24",
             "strict" : "0",
             "warnings" : "0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "1.001014",
+            "Test::Pod" : "1.48"
          }
       }
    },
