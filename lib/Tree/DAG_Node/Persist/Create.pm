@@ -3,20 +3,81 @@ package Tree::DAG_Node::Persist::Create;
 use strict;
 use warnings;
 
-use Hash::FieldHash ':all';
-
 use DBI;
 
 use DBIx::Admin::CreateTable;
 
-fieldhash my %dbh           => 'dbh';
-fieldhash my %dsn           => 'dsn';
-fieldhash my %extra_columns => 'extra_columns';
-fieldhash my %password      => 'password';
-fieldhash my %table_name    => 'table_name';
-fieldhash my %username      => 'username';
+use Moo;
 
-our $VERSION = '1.08';
+use Types::Standard qw/Any ArrayRef Str/;
+
+has dbh =>
+(
+	default  => sub{return ''},
+	is       => 'rw',
+	isa      => Any,
+	required => 0,
+);
+
+has dsn =>
+(
+	default  => sub{return $ENV{DBI_DSN} || ''},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
+
+has extra_columns =>
+(
+	default  => sub{return ''},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
+
+has extra_column_names =>
+(
+	default  => sub{return []},
+	is       => 'rw',
+	isa      => ArrayRef,
+	required => 0,
+);
+
+has password =>
+(
+	default  => sub{return $ENV{DBI_PASS} || ''},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
+
+has table_name =>
+(
+	default  => sub{return 'trees'},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
+
+has username =>
+(
+	default  => sub{return $ENV{DBI_USER} || ''},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
+
+our $VERSION = '1.09';
+
+# -----------------------------------------------
+
+sub BUILD
+{
+	my($self) = @_;
+
+	$self -> extra_column_names([split(/\s*,\s*/, $self -> extra_columns)]);
+
+} # End of BUILD.
 
 # -----------------------------------------------
 
@@ -53,7 +114,7 @@ sub drop_create
 	my($self)          = @_;
 	my($creator)       = DBIx::Admin::CreateTable -> new(dbh => $self -> dbh, verbose => 0);
 	my($table_name)    = $self -> table_name;
-	my(@extra_columns) = @{$self -> extra_columns};
+	my(@extra_columns) = @{$self -> extra_column_names};
 	my($extra_sql)     = '';
 
 	if ($#extra_columns >= 0)
@@ -89,32 +150,6 @@ SQL
 	return 0;
 
 } # End of drop_create.
-
-# -----------------------------------------------
-
-sub init
-{
-	my($self, $arg)      = @_;
-	$$arg{dsn}           ||= $ENV{DBI_DSN};
-	$$arg{password}      ||= $ENV{DBI_PASS};
-	$$arg{extra_columns} = $$arg{extra_columns} ? [split(/\s*,\s*/, $$arg{extra_columns})] : [];
-	$$arg{table_name}    ||= 'trees';
-	$$arg{username}      ||= $ENV{DBI_USER};
-
-	return from_hash($self, $arg);
-
-} # End of init.
-
-# -----------------------------------------------
-
-sub new
-{
-	my($class, %arg) = @_;
-    my($self)        = bless {}, $class;
-
-    return $self -> init(\%arg);
-
-}	# End of new.
 
 # -----------------------------------------------
 

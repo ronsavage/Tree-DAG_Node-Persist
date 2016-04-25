@@ -32,30 +32,33 @@ my(%params) =
 	},
 	DISTNAME  => 'Tree-DAG_Node-Persist',
 	NAME      => 'Tree::DAG_Node::Persist',
-	LICENSE   => 'artistic_2',
 	PL_FILES  => {},
 	PREREQ_PM =>
 	{
-		'DBD::SQLite' => 1.46,
-		'DBI' => 1.633,
-		'DBIx::Admin::CreateTable' => 2.10,
-		'File::Temp' => 0,
-		'Getopt::Long' => 2.42,
-		'Hash::FieldHash' => 0.14,
-		'Pod::Usage' => 1.65,
-		'Scalar::Util' => 1.41,
-		'strict' => 0,
-		'Test::More' => 1.001014,
-		'Test::Pod' => 1.48,
-		'Tree::DAG_Node' => 1.24,
-		'warnings' => 0,
+		'DBD::SQLite'				=> 1.46,
+		'DBI'						=> 1.633,
+		'DBIx::Admin::CreateTable'	=> 2.10,
+		'File::Temp'				=> 0,
+		'Getopt::Long'				=> 2.42,
+		'Hash::FieldHash'			=> 0.14,
+		'Moo'						=> 2.001001,
+		'Pod::Usage'				=> 1.65,
+		'Scalar::Util'				=> 1.41,
+		'strict'					=> 0,
+		'Tree::DAG_Node'			=> 1.24,
+		'warnings'					=> 0,
+	},
+	TEST_REQUIRES =>
+	{
+		'Test::More'	=> 1.001014,
+		'Test::Pod'		=> 1.48,
 	},
 	VERSION_FROM => 'lib/Tree/DAG_Node/Persist.pm',
 );
 
 if ( ($ExtUtils::MakeMaker::VERSION =~ /^\d\.\d\d$/) && ($ExtUtils::MakeMaker::VERSION > 6.30) )
 {
-	$params{LICENSE} = 'artistic_2';
+	$params{LICENSE} = 'perl';
 }
 
 if ($ExtUtils::MakeMaker::VERSION ge '6.46')
@@ -64,17 +67,17 @@ if ($ExtUtils::MakeMaker::VERSION ge '6.46')
 	{
 		'meta-spec' =>
 		{
-		'version' => 2,
+			version => 2,
 		},
 		resources   =>
 		{
-		'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Tree-DAG_Node-Persist',
-		'license' => 'http://opensource.org/licenses/Artistic-2.0',
-			repository =>
+			bugtracker	=> 'https://rt.cpan.org/Public/Dist/Display.html?Name=Tree-DAG_Node-Persist',
+			license		=> 'http://dev.perl.org/licenses/',
+			repository	=>
 			{
-		'type' => 'git',
-		'url' => 'https://github.com/ronsavage/Tree-DAG_Node-Persist.git',
-		'web' => 'https://github.com/ronsavage/Tree-DAG_Node-Persist',
+				type	=> 'git',
+				url		=> 'https://github.com/ronsavage/Tree-DAG_Node-Persist.git',
+				web		=> 'https://github.com/ronsavage/Tree-DAG_Node-Persist',
 			},
 		},
 	};

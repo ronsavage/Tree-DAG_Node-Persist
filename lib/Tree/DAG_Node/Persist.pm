@@ -3,51 +3,79 @@ package Tree::DAG_Node::Persist;
 use strict;
 use warnings;
 
-use Hash::FieldHash ':all';
-
-fieldhash my %context        => 'context';
-fieldhash my %context_col    => 'context_col';
-fieldhash my %dbh            => 'dbh';
-fieldhash my %id_col         => 'id_col';
-fieldhash my %mother_id_col  => 'mother_id_col';
-fieldhash my %name_col       => 'name_col';
-fieldhash my %table_name     => 'table_name';
-fieldhash my %unique_id_col  => 'unique_id_col';
+use Moo;
 
 use Scalar::Util 'refaddr';
 
 use Tree::DAG_Node;
 
-our $VERSION = '1.08';
+use Types::Standard qw/Any Str/;
 
-# -----------------------------------------------
+has context =>
+(
+	default  => sub{return '-'},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
 
-sub init
-{
-	my($self, $arg)      = @_;
-	$$arg{context}       ||= '-';
-	$$arg{context_col}   ||= 'context';
-	$$arg{dbh}           ||= '';
-	$$arg{id_col}        ||= 'id';
-	$$arg{mother_id_col} ||= 'mother_id';
-	$$arg{name_col}      ||= 'name';
-	$$arg{table_name}    ||= 'trees';
-	$$arg{unique_id_col} ||= 'unique_id';
+has context_col =>
+(
+	default  => sub{return 'context'},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
 
-	return from_hash($self, $arg);
+has dbh =>
+(
+	default  => sub{return ''},
+	is       => 'rw',
+	isa      => Any,
+	required => 0,
+);
 
-} # End of init.
+has id_col =>
+(
+	default  => sub{return 'id'},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
 
-# -----------------------------------------------
+has mother_id_col =>
+(
+	default  => sub{return 'mother_id'},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
 
-sub new
-{
-	my($class, %arg) = @_;
-    my($self)        = bless {}, $class;
+has name_col =>
+(
+	default  => sub{return 'name'},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
 
-    return $self -> init(\%arg);
+has table_name =>
+(
+	default  => sub{return 'trees'},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
 
-}	# End of new.
+has unique_id_col =>
+(
+	default  => sub{return 'unique_id'},
+	is       => 'rw',
+	isa      => Str,
+	required => 0,
+);
+
+our $VERSION = '1.09';
 
 # --------------------------------------------------
 
@@ -594,6 +622,15 @@ L<Tree::DAG_Node>.
 =head1 Repository
 
 L<https://github.com/ronsavage/Tree-DAG_Node-Persist>.
+
+=head1 License
+
+This library is free software; you can redistribute it
+and/or modify it under the same terms as Perl 5.10.0.
+
+For more details, see the full text of the licenses at
+http://www.perlfoundation.org/artistic_license_1_0,
+and http://www.gnu.org/licenses/gpl-2.0.html.
 
 =head1 Support
 
