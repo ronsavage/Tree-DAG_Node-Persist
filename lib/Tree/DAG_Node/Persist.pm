@@ -75,7 +75,7 @@ has unique_id_col =>
 	required => 0,
 );
 
-our $VERSION = '1.09';
+our $VERSION = '1.10';
 
 # --------------------------------------------------
 

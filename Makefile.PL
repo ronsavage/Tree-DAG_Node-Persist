@@ -40,12 +40,12 @@ my(%params) =
 		'DBIx::Admin::CreateTable'	=> 2.10,
 		'File::Temp'				=> 0,
 		'Getopt::Long'				=> 2.42,
-		'Hash::FieldHash'			=> 0.14,
 		'Moo'						=> 2.001001,
 		'Pod::Usage'				=> 1.65,
 		'Scalar::Util'				=> 1.41,
 		'strict'					=> 0,
 		'Tree::DAG_Node'			=> 1.24,
+		'Types::Standard'			=> 1.000005,
 		'warnings'					=> 0,
 	},
 	TEST_REQUIRES =>
