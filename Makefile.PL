@@ -23,7 +23,7 @@ my(%params) =
 	) : (),
 	clean =>
 	{
-		FILES => 'blib/* Makefile MANIFEST Tree-DAG_Node-Persist-*'
+		FILES => 'blib/* Makefile Tree-DAG_Node-Persist-*'
 	},
 	dist =>
 	{
@@ -71,7 +71,10 @@ if ($ExtUtils::MakeMaker::VERSION ge '6.46')
 		},
 		resources   =>
 		{
-			bugtracker	=> 'https://rt.cpan.org/Public/Dist/Display.html?Name=Tree-DAG_Node-Persist',
+			bugtracker =>
+			{
+				web => 'https://rt.cpan.org/Public/Dist/Display.html?Name=Tree-DAG_Node-Persist',
+			},
 			license		=> 'http://dev.perl.org/licenses/',
 			repository	=>
 			{
