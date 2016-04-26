@@ -4,7 +4,7 @@
       "Ron Savage <ron@savage.net.au>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Module::Build version 0.4211, CPAN::Meta::Converter version 2.143240",
+   "generated_by" : "Module::Build version 0.4211, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "artistic_2"
    ],
@@ -31,11 +31,11 @@
             "DBIx::Admin::CreateTable" : "2.1",
             "File::Temp" : "0",
             "Getopt::Long" : "2.42",
-            "Hash::FieldHash" : "0.14",
             "Moo" : "2.001001",
             "Pod::Usage" : "1.65",
             "Scalar::Util" : "1.41",
             "Tree::DAG_Node" : "1.24",
+            "Types::Standard" : "1.000005",
             "strict" : "0",
             "warnings" : "0"
          }
@@ -63,5 +63,6 @@
          "http://www.perlfoundation.org/artistic_license_2_0"
       ]
    },
-   "version" : "1.08"
+   "version" : "1.08",
+   "x_serialization_backend" : "JSON::PP version 2.27203"
 }
