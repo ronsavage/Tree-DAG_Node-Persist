@@ -44,4 +44,4 @@
 ^MYMETA.yml$
 ^MYMETA\.json$
 
-^Tree-DAG_Node-Persist-*
+^Tree-DAG_Node-Persist-.*
