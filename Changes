@@ -1,5 +1,9 @@
 Revision history for Perl extension Tree::DAG_Node::Persist.
 
+1.11  2016-04-27T17:35:00
+	- Adopt workflow techniques suggested by Kent Fredric. This means a cleaner workdir and a
+		much more reliable dist. The latter now has auto-generated MANIFEST and META.* files.
+
 1.10  2016-04-26T13:44:00
 	- No code changes.
 	- Update pre-reqs in Makefile.PL to add Types::Standard and remove Hash::FieldHash.
