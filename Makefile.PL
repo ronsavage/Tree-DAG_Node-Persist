@@ -35,7 +35,6 @@ my(%params) =
 	PL_FILES  => {},
 	PREREQ_PM =>
 	{
-		'DBD::SQLite'				=> 1.46,
 		'DBI'						=> 1.633,
 		'DBIx::Admin::CreateTable'	=> 2.10,
 		'File::Temp'				=> 0,
@@ -50,6 +49,7 @@ my(%params) =
 	},
 	TEST_REQUIRES =>
 	{
+		'DBD::SQLite'	=> 1.46,
 		'Test::More'	=> 1.001014,
 		'Test::Pod'		=> 1.48,
 	},
