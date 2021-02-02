@@ -5,14 +5,21 @@ use warnings;
 
 # I tried 'require'-ing modules but that did not work.
 
-use Config::Tiny; # For the version #.
+use Tree::DAG_Node::Persist; # For the version #.
 
 use Test::More;
 
-use File::Spec;
+use DBI;
+use DBIx::Admin::CreateTable;
 use File::Temp;
+use Getopt::Long;
+use Moo;
+use Pod::Usage;
+use Scalar::Util;
 use strict;
-use utf8;
+use Tree::DAG_Node;
+use Types::Standard;
+use warnings;
 
 # ----------------------
 
@@ -20,13 +27,20 @@ pass('All external modules loaded');
 
 my(@modules) = qw
 /
-	File::Spec
+	DBI
+	DBIx::Admin::CreateTable
 	File::Temp
+	Getopt::Long
+	Moo
+	Pod::Usage
+	Scalar::Util
 	strict
-	utf8
+	Tree::DAG_Node
+	Types::Standard
+	warnings
 /;
 
-diag "Testing Config::Tiny V $Config::Tiny::VERSION";
+diag "Testing Tree::DAG_Node::Persist V $Tree::DAG_Node::Persist::VERSION";
 
 for my $module (@modules)
 {
